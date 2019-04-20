@@ -1,0 +1,45 @@
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "privileged": false,
+              "readOnlyRootFilesystem": true
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/opt/workspace/build",
+                "name": "build"
+              },
+              {
+                "mountPath": "/home/node",
+                "name": "home"
+              }
+            ]
+          }
+        ],
+        "securityContext": {
+          "fsGroup": 1000,
+          "runAsGroup": 1000,
+          "runAsNonRoot": true,
+          "runAsUser": 1000,
+          "supplementalGroups": [],
+          "sysctls": []
+        },
+        "volumes": [
+          {
+            "emptyDir": {},
+            "name": "build"
+          },
+          {
+            "emptyDir": {},
+            "name": "home"
+          }
+        ]
+      }
+    }
+  }
+}
